@@ -12,7 +12,7 @@ import TextInputCustomComponent from "../../../components/TextInputCustomCompone
 import ButtonCustomComponent from "../../../components/ButtonCustomComponent";
 import { useNavigation } from "@react-navigation/native";
 import CustomIconComponent from "../../../components/CustomIconComponent";
-import { useState } from "react";
+import { use, useState } from "react";
 import React from "react";
 
 
@@ -25,12 +25,17 @@ const LoginScreen = () => {
   const [userName, setUserName] = useState("");
   const [userPassword, setPassword] = useState("");
   const [email, setEmail] = useState<string>("");
+  const isOnline = useNetwork();
+
+  console.log("isOnline", isOnline);
 
   const forgetPasswordScreenHandler = () => {
     navigation.navigate("ForgetPassword");
   };
   const gotoHomeScreenHandler = () => {
     navigation.navigate('AuthNavigation')
+
+
   };
 
 
